@@ -86,11 +86,14 @@ public class AtomControl : MonoBehaviour
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
                     GameObject newShot = Instantiate(_shotPrefab, transform.position, Quaternion.identity);
-                    newShot.transform.LookAt(new Vector3(hit.point.x, 0, hit.point.z));
+                    newShot.transform.LookAt(new Vector3(hit.point.x, 0.5f, hit.point.z));
+                    Quaternion newShotRotation = newShot.transform.rotation;
+                    newShot.transform.rotation = new Quaternion(0, newShotRotation.y, 0, newShotRotation.w);
+
+                    PowerUpManager.Instance.SubPowerUp(PowerUp.Shot);
+                    SfxManager.Instance.PlaySfxShot();
                 }
 
-                PowerUpManager.Instance.SubPowerUp(PowerUp.Shot);
-                SfxManager.Instance.PlaySfxShot();
             }
 
         }

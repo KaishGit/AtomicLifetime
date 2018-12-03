@@ -19,8 +19,6 @@ public class ShotControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
-
         if (other.CompareTag("Player"))
         {
             return;
