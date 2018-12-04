@@ -39,7 +39,7 @@ public class AtomControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             if (_canMove)
             {
@@ -77,7 +77,7 @@ public class AtomControl : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             if (PowerUpManager.Instance.HasPowerUp(PowerUp.Shot))
             {
